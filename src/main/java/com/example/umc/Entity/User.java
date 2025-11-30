@@ -4,8 +4,7 @@ import com.example.umc.Entity.Enum.Gender;
 import com.example.umc.Entity.Enum.Status;
 import com.example.umc.common.auth.enums.Role;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -14,6 +13,9 @@ import java.util.*;
 @Table(name = "users")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
