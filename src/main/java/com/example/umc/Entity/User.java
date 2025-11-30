@@ -37,6 +37,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+
     @Column(length = 10)
     private String birth;
 

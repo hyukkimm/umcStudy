@@ -1,5 +1,6 @@
 package com.example.umc.converter;
 
+import com.example.umc.Entity.Enum.Status;
 import com.example.umc.Entity.User;
 import com.example.umc.common.auth.enums.Role;
 import com.example.umc.dto.UserReqDTO;
@@ -28,6 +29,7 @@ public class UserConverter {
                 .email(dto.email())
                 .password(password)
                 .role(role)
+                .status(Status.ACTIVE)
                 .birth(String.valueOf(dto.birth()))
                 .gender(dto.gender())
                 .build();

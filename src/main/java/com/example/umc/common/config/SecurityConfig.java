@@ -2,18 +2,19 @@ package com.example.umc.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
 
     private final String[] allowUris = {
-			"/sign-up",
+            "/sign-up",
             "/swagger-ui/**",
             "/swagger-resources/**",
             "/v3/api-docs/**",
@@ -31,6 +32,7 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/swagger-ui/index.html", true)
                         .permitAll()
                 )
+                .csrf(AbstractHttpConfigurer::disable)
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout")
@@ -39,12 +41,9 @@ public class SecurityConfig {
 
         return http.build();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-//    @Bean
-//    public JwtAuthFilter jwtAuthFilter(){
-//        return new JwtAuthFilter()
-//    }
 }
