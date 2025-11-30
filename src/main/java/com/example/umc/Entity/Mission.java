@@ -1,9 +1,7 @@
 package com.example.umc.Entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -13,6 +11,8 @@ import java.util.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Mission {
 
     @Id
@@ -34,5 +34,6 @@ public class Mission {
 
     // 1:N 미션 → 유저미션
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
+    @Builder.Default
     private List<UserMission> userMissions = new ArrayList<>();
 }

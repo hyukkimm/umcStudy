@@ -1,7 +1,10 @@
 package com.example.umc.Repository;
 
 import com.example.umc.Entity.Review;
+import com.example.umc.Entity.User;
 import com.example.umc.Service.query.ReviewQueryDSL;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -11,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 
 public interface ReviewRepository extends JpaRepository<Review, Long>, ReviewQueryDSL {
+
+    Page<Review> findByUser(User user, Pageable pageable);
 
     @Transactional
     @Modifying
