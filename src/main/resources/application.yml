@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: umc
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/umc?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: root
+    password: "dkttkfkqldk!2"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+jwt:
+  token:
+    secretKey: "ABCD1234ABCD1234ABCD1234ABCD1234"
+    expiration:
+      access: 14400000

@@ -34,4 +34,13 @@ public class UserConverter {
                 .gender(dto.gender())
                 .build();
     }
+    public static UserResDTO.LoginDTO toLoginDTO(
+            User user,
+            String accessToken
+    ){
+        return UserResDTO.LoginDTO.builder()
+                .accessToken(accessToken)
+                .memberId(user.getId())
+                .build();
+    }
 }

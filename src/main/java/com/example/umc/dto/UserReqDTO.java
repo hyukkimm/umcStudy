@@ -22,4 +22,11 @@ public class UserReqDTO {
             LocalDate birth
 
     ){}
+    // 로그인
+    public record LoginDTO(
+            @NotBlank
+            String email,
+            @NotBlank
+            String password
+    ){}
 }
