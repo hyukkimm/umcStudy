@@ -19,9 +19,7 @@ public class UserReqDTO {
             @NotNull
             Gender gender,
             @NotNull
-            LocalDate birth,
-            @NotNull
-            String specAddress
+            LocalDate birth
 
     ){}
 }
